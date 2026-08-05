@@ -1,6 +1,4 @@
-/* ==========================================================================
-   Modern Dark & Glassmorphism Design System
-   ========================================================================== */
+/* Main Stylesheet - Somsubhra Daw Portfolio */
 
 :root {
     /* Color Palette */
@@ -397,24 +395,35 @@ body {
 
 .avatar-card {
     position: relative;
-    padding: 20px;
+    padding: 16px;
     border-radius: var(--radius-lg);
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .avatar-wrapper {
     position: relative;
-    width: 320px;
-    height: 320px;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
     border-radius: var(--radius-md);
-    overflow: hidden;
+    overflow: hidden !important;
+    margin: 0 auto;
+    box-shadow: inset 0 0 0 1px var(--border-glow);
 }
 
 .avatar-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+    border-radius: var(--radius-md) !important;
     transition: transform var(--transition-normal);
 }
 
@@ -572,6 +581,19 @@ body {
     background: rgba(99, 102, 241, 0.1);
     border-color: var(--primary-indigo);
     color: var(--primary-indigo);
+}
+
+/* Project Cards Styling */
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary-indigo) !important;
+    box-shadow: 0 16px 40px rgba(99, 102, 241, 0.25);
+}
+
+body.light-theme .project-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(99, 102, 241, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 /* Coming Soon Card Styling */
@@ -826,6 +848,34 @@ body.light-theme .coming-soon-card {
     color: var(--text-dim);
 }
 
+/* Visitor Counter Badge */
+.visitor-counter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 14px;
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--primary-cyan);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.visitor-counter-pill:hover {
+    border-color: var(--primary-indigo);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+}
+
+body.light-theme .visitor-counter-pill {
+    background: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.25);
+    color: var(--primary-indigo);
+}
+
 .back-to-top {
     width: 40px;
     height: 40px;
@@ -848,9 +898,27 @@ body.light-theme .coming-soon-card {
 /* Responsive Media Queries */
 @media (max-width: 992px) {
     .hero-container {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
-        gap: 40px;
+        gap: 36px;
+    }
+
+    .hero-visual {
+        order: 1; /* Hero Picture ABOVE introduction text on mobile! */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-content {
+        order: 2; /* Hero Introduction text below picture on mobile! */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .hero-description {
@@ -1377,6 +1445,30 @@ html, body {
         padding-bottom: 40px !important;
     }
 
+    .hero-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 32px !important;
+    }
+
+    .hero-visual {
+        order: 1 !important; /* Picture placed FIRST above intro text on smartphones! */
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .hero-content {
+        order: 2 !important; /* Intro text placed AFTER picture on smartphones! */
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
     .hero-title {
         font-size: clamp(2rem, 7.5vw, 2.8rem) !important;
         line-height: 1.2 !important;
@@ -1396,28 +1488,63 @@ html, body {
 
     .avatar-card {
         width: 100% !important;
-        max-width: 280px !important;
+        max-width: 270px !important;
+        padding: 12px !important;
         margin: 0 auto !important;
+        box-sizing: border-box !important;
     }
 
     .avatar-wrapper {
-        height: auto !important;
-        aspect-ratio: 1/1 !important;
+        width: 100% !important;
+        max-width: 246px !important;
+        aspect-ratio: 1 / 1 !important;
+        overflow: hidden !important;
+        border-radius: var(--radius-md) !important;
+        margin: 0 auto !important;
     }
 
     .avatar-img {
         width: 100% !important;
         height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
         object-fit: cover !important;
+        object-position: center top !important;
+        border-radius: var(--radius-md) !important;
     }
 
     .floating-badge {
-        padding: 8px 12px !important;
-        font-size: 0.8rem !important;
+        padding: 5px 10px !important;
+        gap: 8px !important;
+        font-size: 0.72rem !important;
+        border-radius: var(--radius-sm) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+        z-index: 5 !important;
     }
 
     .floating-badge i {
-        font-size: 1rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    .badge-title {
+        font-size: 0.72rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .badge-sub {
+        font-size: 0.62rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Shift badge-top-left completely above avatar frame so it NEVER covers face! */
+    .badge-top-left {
+        top: -24px !important;
+        left: -15px !important;
+    }
+
+    .badge-bottom-right {
+        bottom: -24px !important;
+        right: -15px !important;
     }
 
     .hero-cta {
@@ -1500,11 +1627,18 @@ html, body {
         padding: 6px 12px !important;
     }
 
-    .photo-modal-content {
-        max-height: 85vh !important;
+    .floating-badge {
+        transform: scale(0.82) !important;
+        transform-origin: center !important;
     }
 
-    .photo-modal-img-container {
-        max-height: 60vh !important;
+    .badge-top-left {
+        top: -26px !important;
+        left: -18px !important;
+    }
+
+    .badge-bottom-right {
+        bottom: -26px !important;
+        right: -18px !important;
     }
 }

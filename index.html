@@ -161,8 +161,8 @@
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
-                            <span class="stat-number">Soon</span>
-                            <span class="stat-label">Projects Coming Soon</span>
+                            <span class="stat-number">1+</span>
+                            <span class="stat-label">Featured Projects</span>
                         </div>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                 <div class="hero-visual">
                     <div class="avatar-card glass-card">
                         <div class="avatar-wrapper">
-                            <img src="hero-avatar.png" alt="Somsubhra Daw Portrait" class="avatar-img protected-media" id="avatar-image" width="380" height="380" fetchpriority="high" decoding="async" draggable="false" oncontextmenu="return false;">
+                            <img src="hero-avatar.png" alt="Somsubhra Daw Portrait" class="avatar-img protected-media" id="avatar-image" fetchpriority="high" decoding="async" draggable="false" oncontextmenu="return false;">
                             <div class="avatar-glow"></div>
                         </div>
                         <div class="floating-badge badge-top-left glass-card">
@@ -375,17 +375,51 @@
                     <span class="section-tag">SELECTED WORK</span>
                     <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
                     <p class="section-description">
-                        A collection of recent applications and design experiments.
+                        System-level research repositories, web applications, and software tools.
                     </p>
+                </div>
+
+                <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 40px;">
+                    <!-- Project Card: Android-Battery-Tuning-Lab -->
+                    <div class="project-card glass-card" style="padding: 32px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-glow); position: relative; overflow: hidden; transition: transform 0.3s ease, border-color 0.3s ease;">
+                        <div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+                                <div style="width: 48px; height: 48px; background: rgba(16, 185, 129, 0.15); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #10b981;">
+                                    <i class="fa-brands fa-android"></i>
+                                </div>
+                                <span class="badge-pill" style="margin-bottom: 0; padding: 4px 12px; font-size: 0.78rem;">
+                                    <i class="fa-solid fa-flask text-cyan"></i> Research Lab
+                                </span>
+                            </div>
+
+                            <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">Android-Battery-Tuning-Lab</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.65; margin-bottom: 24px;">
+                                A research-focused repository documenting controlled experiments on Android battery behavior using system-level tools such as ADB, JobScheduler, App Standby Buckets, and power-related global settings. This project focuses on observation, measurement, and documentation — not battery-boosting claims or unsafe tweaks.
+                            </p>
+
+                            <div class="skill-tags" style="margin-bottom: 28px;">
+                                <span class="skill-tag"><i class="fa-brands fa-android text-cyan"></i> Android OS</span>
+                                <span class="skill-tag"><i class="fa-solid fa-terminal text-purple"></i> ADB CLI</span>
+                                <span class="skill-tag"><i class="fa-solid fa-battery-three-quarters text-pink"></i> Power Analysis</span>
+                                <span class="skill-tag"><i class="fa-solid fa-sliders text-cyan"></i> JobScheduler</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a href="https://github.com/somsubhra-daw/Android-Battery-Tuning-Lab.git" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 10px 18px; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px;">
+                                <i class="fa-brands fa-github"></i> View Repository
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="coming-soon-card glass-card text-center">
                     <div class="coming-soon-icon">
                         <i class="fa-solid fa-rocket text-purple"></i>
                     </div>
-                    <h3 class="coming-soon-title">Exciting Projects <span class="gradient-text">Coming Soon</span></h3>
+                    <h3 class="coming-soon-title">More Projects <span class="gradient-text">Coming Soon</span></h3>
                     <p class="coming-soon-description">
-                        I am currently developing some awesome software, web applications, and automation tools using Java, Python, and Google Apps Script. Check back soon for live demos and GitHub repositories!
+                        I am currently developing more software, web applications, and automation tools using Java, Python, and Google Apps Script. Check back soon!
                     </p>
                     <div class="badge-pill" style="margin-bottom: 0;">
                         <span class="pulse-dot"></span> Under Active Development
@@ -462,7 +496,13 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-container">
-            <p>&copy; 2026 Somsubhra Daw. All Rights Reserved.</p>
+            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                <p style="margin: 0;">&copy; 2026 Somsubhra Daw. All Rights Reserved.</p>
+                <div class="visitor-counter-pill" id="visitor-counter-badge" title="Unique Visitor Views (24-Hour IP Deduplicated)">
+                    <i class="fa-solid fa-eye text-cyan"></i>
+                    <span id="visitor-count">1</span> Views
+                </div>
+            </div>
             <a href="#hero" class="back-to-top" aria-label="Back to Top">
                 <i class="fa-solid fa-arrow-up"></i>
             </a>
