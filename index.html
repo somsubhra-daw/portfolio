@@ -102,7 +102,6 @@
                             <li><a href="#about" class="dropdown-item"><i class="fa-solid fa-user dropdown-icon"></i> About Me</a></li>
                             <li><a href="#skills" class="dropdown-item"><i class="fa-solid fa-laptop-code dropdown-icon"></i> Skills & Toolkit</a></li>
                             <li><a href="#education" class="dropdown-item"><i class="fa-solid fa-graduation-cap dropdown-icon"></i> Education & Experience</a></li>
-                            <li><a href="#gallery" class="dropdown-item"><i class="fa-solid fa-camera dropdown-icon"></i> Photo Gallery</a></li>
                             <li><a href="#projects" class="dropdown-item"><i class="fa-solid fa-rocket dropdown-icon"></i> Featured Projects</a></li>
                             <li><a href="#contact" class="dropdown-item"><i class="fa-solid fa-paper-plane dropdown-icon"></i> Contact Me</a></li>
                         </ul>
@@ -369,21 +368,6 @@
             </div>
         </section>
 
-        <!-- Photo Gallery Section -->
-        <section class="gallery section-padding" id="gallery">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">VISUAL MOMENTS</span>
-                    <h2 class="section-title">Photo <span class="gradient-text">Gallery</span></h2>
-                </div>
-
-                <!-- Dynamic Photo Gallery Grid -->
-                <div id="photo-gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
-                    <!-- Dynamically populated from gallery/ folder -->
-                </div>
-            </div>
-        </section>
-
         <!-- Projects Section -->
         <section class="projects section-padding" id="projects">
             <div class="container">
@@ -485,24 +469,7 @@
         </div>
     </footer>
 
-    <!-- Photo Lightbox Modal (Protected Privacy View) -->
-    <div class="photo-modal" id="photo-modal" aria-hidden="true" style="display: none;">
-        <div class="photo-modal-overlay" id="photo-modal-overlay"></div>
-        <div class="photo-modal-content glass-card">
-            <button class="photo-modal-close" id="photo-modal-close" aria-label="Close Lightbox">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="photo-modal-img-container">
-                <!-- Invisible Transparent Security Shield Layer -->
-                <div class="security-shield-overlay" oncontextmenu="return false;"></div>
-                <img src="" alt="Protected View" id="photo-modal-img" class="protected-media" draggable="false" oncontextmenu="return false;">
-            </div>
-            <div class="photo-modal-caption">
-                <i class="fa-solid fa-camera text-cyan"></i>
-                <h3 id="photo-modal-title">Photo Preview</h3>
-            </div>
-        </div>
-    </div>
+    <!-- Script JS -->
 
     <!-- Script JS -->
     <script src="script.js"></script>
