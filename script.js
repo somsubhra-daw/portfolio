@@ -224,29 +224,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function addImageToGallery(src, filename) {
             if (loadedImages.has(src)) return;
-            loadedImages.add(src);
-            const card = createPhotoCard(src, filename);
-            galleryGrid.appendChild(card);
+
+            // Pre-verify image existence before creating card
+            const imgTest = new Image();
+            imgTest.onload = () => {
+                if (loadedImages.has(src)) return;
+                loadedImages.add(src);
+                const card = createPhotoCard(src, filename);
+                galleryGrid.appendChild(card);
+
+                // Safety guard: if inner image fails to load, remove card immediately
+                const innerImg = card.querySelector('.photo-card-img');
+                if (innerImg) {
+                    innerImg.onerror = () => {
+                        card.remove();
+                        loadedImages.delete(src);
+                    };
+                }
+            };
+
+            imgTest.onerror = () => {
+                // Image was deleted or does not exist - silently ignore & do not add broken card
+                loadedImages.delete(src);
+            };
+
+            imgTest.src = src;
         }
 
-        // Photo Gallery Loaders: Direct Array + JSON Manifest + Directory Auto Scanner
-        const defaultGalleryFiles = [
-            'gallery/Sunset_at_Berhampore_Campus.jpg',
-            'gallery/Coding_and_Software_Development.jpg',
-            'gallery/Artistic_Workspace_and_Creative_Tools.jpg'
-        ];
-
-        // 1. Proactive load default photos
-        defaultGalleryFiles.forEach(src => {
-            const filename = src.split('/').pop();
-            const img = new Image();
-            img.onload = () => {
-                addImageToGallery(src, filename);
-            };
-            img.src = src;
-        });
-
-        // 2. Fetch gallery/images.json if deployed on server
+        // 1. Fetch gallery/images.json manifest if present
         fetch('gallery/images.json')
             .then(res => res.json())
             .then(data => {
@@ -260,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(() => {});
 
-        // 3. Auto-parse directory HTML (when local dev server supports it)
+        // 2. Auto-parse directory HTML (when served via dev server)
         fetch('gallery/')
             .then(res => res.text())
             .then(html => {
