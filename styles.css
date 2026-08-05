@@ -848,33 +848,31 @@ body.light-theme .coming-soon-card {
     color: var(--text-dim);
 }
 
-/* Visitor Counter Badge */
-.visitor-counter-pill {
+/* Third Party Visitor Counter Container & Link Formatting */
+.third-party-counter {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 4px 14px;
-    background: rgba(99, 102, 241, 0.12);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: var(--radius-full);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--primary-cyan);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
+    position: relative;
+    vertical-align: middle;
 }
 
-.visitor-counter-pill:hover {
-    border-color: var(--primary-indigo);
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+.third-party-counter a[href*="counters-free"] {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    opacity: 0.001 !important;
+    position: absolute !important;
+    pointer-events: none !important;
 }
 
-body.light-theme .visitor-counter-pill {
-    background: rgba(99, 102, 241, 0.08);
-    border-color: rgba(99, 102, 241, 0.25);
-    color: var(--primary-indigo);
+a[href*="freevisitorcounters.com"] {
+    font-size: 0 !important;
+    color: transparent !important;
+    text-decoration: none !important;
+    pointer-events: none !important;
 }
+
 
 .back-to-top {
     width: 40px;
