@@ -1,0 +1,49 @@
+# ==============================================================================
+# SOMSUBHRA DAW PORTFOLIO - INFINITYFREE / APACHE .HTACCESS SECURITY CONFIG
+# ==============================================================================
+
+<IfModule mod_headers.c>
+    # 1. Content Security Policy (CSP)
+    # Allows self assets, Google Fonts, and Font Awesome CDN while blocking unauthorized scripts
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https: blob:; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self';"
+
+    # 2. Prevent MIME Type Sniffing (X-Content-Type-Options)
+    Header always set X-Content-Type-Options "nosniff"
+
+    # 3. Prevent Clickjacking / Framing (X-Frame-Options)
+    Header always set X-Frame-Options "DENY"
+
+    # 4. Strict Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # 5. Disable Unused Browser Features & Hardware APIs (Permissions-Policy)
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), display-capture=(), payment=(), autoplay=(), battery=()"
+
+    # 6. HTTP Strict Transport Security (HSTS) - 1 Year Duration
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # 7. Enable Cross-Origin Resource Policy
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+</IfModule>
+
+# ==============================================================================
+# Performance & Static Asset Caching
+# ==============================================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    
+    # HTML Documents (must revalidate to fetch fresh versions)
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # Static Assets (1 Year Immutable Cache)
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Prevent Directory Browsing
+Options -Indexes
